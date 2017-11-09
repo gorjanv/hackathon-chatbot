@@ -14,7 +14,7 @@ app.listen(app.get('port'), function() {
 });
 
 //routes
-app.post('/api/welcome', function(req, res) {
+app.get('/api/welcome', function(req, res) {
   res.send('youve reached the welcome api endpoint!');
 });
 
