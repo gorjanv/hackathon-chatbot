@@ -15,7 +15,14 @@ app.listen(app.get('port'), function() {
 
 //routes
 app.get('/api/welcome', function(req, res) {
-  res.send('youve reached the welcome api endpoint!');
+  const message = {
+    "messages": [
+      {
+        "text": "hello from the bot's BE application!!"
+      }
+    ]
+  };
+  res.send(JSON.stringify(message));
 });
 
 app.get('/', function(req, res) {
