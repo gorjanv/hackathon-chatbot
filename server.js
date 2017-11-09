@@ -19,7 +19,7 @@ app.listen(app.get('port'), function() {
 //routes
 app.get('/api/welcome', function(req, res) {
   var url_parts = url.parse(req.url, true);
-  var query = JSON.parse(url_parts.query);
+  var query = JSON.stringify(url_parts.query);
 
   const message = {
     "messages": [
