@@ -14,10 +14,10 @@ app.listen(app.get('port'), function() {
 });
 
 //routes
-app.get('/*', function(req, res) {
-  res.send('Hi, Live and Let Pie bot here!');
-});
-
 app.post('/api/welcome', function(req, res) {
   res.send('youve reached the welcome api endpoint!');
+});
+
+app.get('/', function(req, res) {
+  res.send('Hi, Live and Let Pie bot here!');
 });
