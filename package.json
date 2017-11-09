@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +16,10 @@
     "url": "https://github.com/gorjanv/hackathon-chatbot/issues"
   },
   "homepage": "https://github.com/gorjanv/hackathon-chatbot#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
 }
