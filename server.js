@@ -26,9 +26,6 @@ app.get('/api/welcome', function(req, res) {
       {
         "text": "hello from the bot's BE application!!"
       },
-      {
-        "text": query
-      }
     ]
   };
   res.status(200).json(message);
