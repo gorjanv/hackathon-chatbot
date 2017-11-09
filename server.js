@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyPraser = require('body-parser');
 const request = require('request');
+const logger = require('express-pino-logger')();
 
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use(logger);
 app.use(bodyPraser.urlencoded({ extended: false }));
 app.use(bodyPraser.json());
 
@@ -15,7 +17,6 @@ app.listen(app.get('port'), function() {
 
 //routes
 app.get('/api/welcome', function(req, res) {
-  debugger;
   const message = {
     "messages": [
       {
@@ -23,7 +24,7 @@ app.get('/api/welcome', function(req, res) {
       }
     ]
   };
-  res.send(JSON.stringify(message));
+  res.status(200).json(message);
 });
 
 app.get('/', function(req, res) {
