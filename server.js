@@ -15,6 +15,7 @@ app.listen(app.get('port'), function() {
 
 //routes
 app.get('/api/welcome', function(req, res) {
+  debugger;
   const message = {
     "messages": [
       {
