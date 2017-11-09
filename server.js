@@ -17,3 +17,7 @@ app.listen(app.get('port'), function() {
 app.get('/*', function(req, res) {
   res.send('Hi, Live and Let Pie bot here!');
 });
+
+app.get('/api/welcome', function(req, res) {
+  res.send('youve reached the welcome api endpoint!');
+});
