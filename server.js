@@ -55,7 +55,7 @@ app.get('/api/sandwiches/amount', function(req, res) {
   var newUsers = users.map(function(user) {
     if (user.hasOwnProperty("username")) {
       if (user.username === query["messenger user id"]) {
-        user["amountOfSandwiches"] = query["amountofsandwiches"];
+        user["amountOfSandwiches"] = parseInt(query["amountofsandwiches"]);
         userDoesntExist = false;
       }
     }
