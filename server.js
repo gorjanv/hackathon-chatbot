@@ -20,6 +20,8 @@ app.listen(app.get('port'), function() {
 app.get('/api/sandwiches', function(req, res) {
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query["last clicked button name"];
+  var message = "";
+
   if (query === "Yes, I did") {
     const message = {
       "redirect_to_blocks": ["First salad question"],
@@ -28,6 +30,7 @@ app.get('/api/sandwiches', function(req, res) {
           "text": "wow how about a salad"
         }
       ]
+    }
   } else {
       const message = {
         "redirect_to_blocks": ["First drinks question"],
@@ -37,8 +40,7 @@ app.get('/api/sandwiches', function(req, res) {
           }
         ]
     }
-
-  };
+  }
 
   res.status(200).json(message);
 });
