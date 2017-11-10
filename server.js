@@ -66,17 +66,16 @@ app.get('/api/sandwiches/cheese', function(req, res) {
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
 
-  // var newUsers = users.map(function(user) {
-  //   if (user.hasOwnProperty("username")) {
-  //     if (user.username === query["messenger user id"]) {
-  //       user["cheese"] = user["cheese"].push(query["typeofcheese"]);
-  //     }
-  //   }
-  // });
-  //
-  // users = newUsers;
+  var newUsers = users.map(function(user) {
+    if (user.hasOwnProperty("username")) {
+      if (user.username === query["messenger user id"]) {
+        user["cheese"] = user["cheese"].push(query["typeofcheese"]);
+      }
+    }
+    return user;
+  });
 
-
+  users = newUsers;
 
   const message = {
     "redirect_to_blocks": ["What did you have on your sandwich?"],
