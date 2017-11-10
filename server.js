@@ -23,7 +23,7 @@ app.get('/api/sandwiches', function(req, res) {
   var message = "";
 
   if (query === "Yes, I did") {
-    const message = {
+    message = {
       "redirect_to_blocks": ["First salad question"],
       "messages": [
         {
@@ -32,13 +32,13 @@ app.get('/api/sandwiches', function(req, res) {
       ]
     }
   } else {
-      const message = {
-        "redirect_to_blocks": ["First drinks question"],
-        "messages": [
-          {
-            "text": "then drink something!!"
-          }
-        ]
+    message = {
+      "redirect_to_blocks": ["First drinks question"],
+      "messages": [
+        {
+          "text": "then drink something!!"
+        }
+      ]
     }
   }
 
