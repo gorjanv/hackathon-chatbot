@@ -49,7 +49,7 @@ app.get('/api/sandwiches', function(req, res) {
 
 app.get('/api/sandwiches/amount', function(req, res) {
   var url_parts = url.parse(req.url, true);
-  var query = url_parts.query["username"];
+  var query = url_parts.query;
 
   users.push({
     "username": query["messenger user id"],
