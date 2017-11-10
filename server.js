@@ -190,12 +190,14 @@ app.get('/api/statistics', function(req, res) {
   var cheese = 0;
   var spread = 0;
   var salad = 0;
+  var sandwich = 0;
 
   users.forEach(function(user) {
-    cheese += cheese.length;
-    spread += spread.length;
-    meat += meat.length;
-    salad += salad.length;
+    cheese += user.cheese.length;
+    spread += user.spread.length;
+    meat += user.meat.length;
+    salad += user.salad.length;
+    sandwich += user.amountOfSandwiches;
   });
 
   const numberOfUsers = "Number of users that intereacted with the bot: " + users.length;
@@ -203,12 +205,16 @@ app.get('/api/statistics', function(req, res) {
   const numberOfMeatSlices = "Number of meat slices eaten today: " + meat.toString();
   const numberOfSalads = "Number of salads eaten today: " + salad.toString();
   const numberOfSpreads = "Number of spreads eaten today: " + spread.toString();
+  const numberOfSandwiches = "Number of sandwiches eaten today: " + sandwich.toString();
 
   const message = {
     // "redirect_to_blocks": ["What did you have on your sandwich?"],
     "messages": [
       {
         "text": numberOfUsers
+      },
+      {
+        "text": numberOfSandwiches
       },
       {
         "text": numberOfCheeseSlices
