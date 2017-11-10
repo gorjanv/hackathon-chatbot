@@ -56,6 +56,8 @@ app.get('/api/sandwiches/amount', function(req, res) {
     "amountOfSandwiches": query["amountofsandwiches"],
     "cheese": [],
     "meat": [],
+    "salad": [],
+    "spread": []
   });
 
   const message = {
@@ -79,15 +81,15 @@ app.get('/api/sandwiches/cheese', function(req, res) {
 
   users = newUsers;
 
-  // const message = {
-  //   // "redirect_to_blocks": ["What did you have on your sandwich?"],
-  //   "messages": [
-  //     {
-  //       "text": JSON.stringify(users)
-  //     }
-  //   ]
-  // };
-  // res.status(200).json(message);
+  const message = {
+    // "redirect_to_blocks": ["What did you have on your sandwich?"],
+    "messages": [
+      {
+        "text": JSON.stringify(users)
+      }
+    ]
+  };
+  res.status(200).json(message);
 });
 
 app.get('/api/sandwiches/meat', function(req, res) {
@@ -105,15 +107,67 @@ app.get('/api/sandwiches/meat', function(req, res) {
 
   users = newUsers;
 
-  // const message = {
-  //   // "redirect_to_blocks": ["What did you have on your sandwich?"],
-  //   "messages": [
-  //     {
-  //       "text": JSON.stringify(users)
-  //     }
-  //   ]
-  // };
-  // res.status(200).json(message);
+  const message = {
+    // "redirect_to_blocks": ["What did you have on your sandwich?"],
+    "messages": [
+      {
+        "text": JSON.stringify(users)
+      }
+    ]
+  };
+  res.status(200).json(message);
+});
+
+app.get('/api/sandwiches/salad', function(req, res) {
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+
+  var newUsers = users.map(function(user) {
+    if (user.hasOwnProperty("username")) {
+      if (user.username === query["messenger user id"]) {
+        user["salad"].push(query["typeofsalad"]);
+      }
+    }
+    return user;
+  });
+
+  users = newUsers;
+
+  const message = {
+    // "redirect_to_blocks": ["What did you have on your sandwich?"],
+    "messages": [
+      {
+        "text": JSON.stringify(users)
+      }
+    ]
+  };
+  res.status(200).json(message);
+});
+
+app.get('/api/sandwiches/spread', function(req, res) {
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+
+  var newUsers = users.map(function(user) {
+    if (user.hasOwnProperty("username")) {
+      if (user.username === query["messenger user id"]) {
+        user["spread"].push(query["typeofspread"]);
+      }
+    }
+    return user;
+  });
+
+  users = newUsers;
+
+  const message = {
+    // "redirect_to_blocks": ["What did you have on your sandwich?"],
+    "messages": [
+      {
+        "text": JSON.stringify(users)
+      }
+    ]
+  };
+  res.status(200).json(message);
 });
 
 app.get('/api/welcome', function(req, res) {
