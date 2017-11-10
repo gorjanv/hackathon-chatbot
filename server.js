@@ -60,7 +60,7 @@ app.get('/api/sandwiches/amount', function(req, res) {
 
     "messages": [
       {
-        "text": users
+        "text": JSON.stringify(users)
       }
     ]
   };
