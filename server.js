@@ -54,6 +54,7 @@ app.get('/api/sandwiches/amount', function(req, res) {
   users.push({
     "username": query["messenger user id"],
     "amountOfSandwiches": query["amountofsandwiches"],
+    "cheese": [],
   });
 
   const message = {
