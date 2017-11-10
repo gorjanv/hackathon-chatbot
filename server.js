@@ -19,15 +19,25 @@ app.listen(app.get('port'), function() {
 //routes
 app.get('/api/sandwiches', function(req, res) {
   var url_parts = url.parse(req.url, true);
-  var query = JSON.stringify(url_parts.query);
+  var query = url_parts.query["last clicked button name"];
+  if (query === "Yes, I did") {
+    const message = {
+      "redirect_to_blocks": ["First salad question"],
+      "messages": [
+        {
+          "text": "wow how about a salad"
+        }
+      ]
+  } else {
+      const message = {
+        "redirect_to_blocks": ["First drinks question"],
+        "messages": [
+          {
+            "text": "then drink something!!"
+          }
+        ]
+    }
 
-  const message = {
-    "redirect_to_blocks": ["Salad ingredients"],
-    "messages": [
-      {
-        "text": query
-      }
-    ]
   };
 
   res.status(200).json(message);
