@@ -35,7 +35,7 @@ app.get('api/sandwiches', function(req, res) {
   const message = {
     "messages": [
       {
-        "text": query
+        "text": "some random text..."
       }
     ]
   };
