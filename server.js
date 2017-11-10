@@ -95,16 +95,6 @@ app.get('/api/sandwiches/cheese', function(req, res) {
   });
 
   users = newUsers;
-
-  const message = {
-    // "redirect_to_blocks": ["What did you have on your sandwich?"],
-    "messages": [
-      {
-        "text": JSON.stringify(users)
-      }
-    ]
-  };
-  res.status(200).json(message);
 });
 
 app.get('/api/sandwiches/meat', function(req, res) {
@@ -121,16 +111,6 @@ app.get('/api/sandwiches/meat', function(req, res) {
   });
 
   users = newUsers;
-
-  const message = {
-    // "redirect_to_blocks": ["What did you have on your sandwich?"],
-    "messages": [
-      {
-        "text": JSON.stringify(users)
-      }
-    ]
-  };
-  res.status(200).json(message);
 });
 
 app.get('/api/sandwiches/salad', function(req, res) {
@@ -147,16 +127,6 @@ app.get('/api/sandwiches/salad', function(req, res) {
   });
 
   users = newUsers;
-
-  const message = {
-    // "redirect_to_blocks": ["What did you have on your sandwich?"],
-    "messages": [
-      {
-        "text": JSON.stringify(users)
-      }
-    ]
-  };
-  res.status(200).json(message);
 });
 
 app.get('/api/sandwiches/spread', function(req, res) {
@@ -173,16 +143,6 @@ app.get('/api/sandwiches/spread', function(req, res) {
   });
 
   users = newUsers;
-
-  const message = {
-    // "redirect_to_blocks": ["What did you have on your sandwich?"],
-    "messages": [
-      {
-        "text": JSON.stringify(users)
-      }
-    ]
-  };
-  res.status(200).json(message);
 });
 
 app.get('/api/statistics', function(req, res) {
