@@ -50,15 +50,30 @@ app.get('/api/sandwiches', function(req, res) {
 app.get('/api/sandwiches/amount', function(req, res) {
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
+  var userDoesntExist = true;
 
-  users.push({
-    "username": query["messenger user id"],
-    "amountOfSandwiches": query["amountofsandwiches"],
-    "cheese": [],
-    "meat": [],
-    "salad": [],
-    "spread": []
+  var newUsers = users.map(function(user) {
+    if (user.hasOwnProperty("username")) {
+      if (user.username === query["messenger user id"]) {
+        user["amountOfSandwiches"] = query["amountofsandwiches"];
+        userDoesntExist = false;
+      }
+    }
+    return user;
   });
+
+  if(userDoesntExist) {
+    users.push({
+      "username": query["messenger user id"],
+      "amountOfSandwiches": query["amountofsandwiches"],
+      "cheese": [],
+      "meat": [],
+      "salad": [],
+      "spread": []
+    });
+  } else {
+    users = newUsers;
+  }
 
   const message = {
     "redirect_to_blocks": ["What did you have on your sandwich?"]
