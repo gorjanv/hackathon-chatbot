@@ -185,6 +185,48 @@ app.get('/api/sandwiches/spread', function(req, res) {
   res.status(200).json(message);
 });
 
+app.get('/api/statistics', function(req, res) {
+  var meat = 0;
+  var cheese = 0;
+  var spread = 0;
+  var salad = 0;
+
+  users.forEach(function(user) {
+    cheese += cheese.length;
+    spread += spread.length;
+    meat += meat.length;
+    salad += salad.length;
+  });
+
+  const numberOfUsers = "Number of users that intereacted with the bot: " + users.length;
+  const numberOfCheeseSlices = "Number of cheese slices eaten today: " + cheese.toString();
+  const numberOfMeatSlices = "Number of meat slices eaten today: " + meat.toString();
+  const numberOfSalads = "Number of salads eaten today: " + salad.toString();
+  const numberOfSpreads = "Number of spreads eaten today: " + spread.toString();
+
+  const message = {
+    // "redirect_to_blocks": ["What did you have on your sandwich?"],
+    "messages": [
+      {
+        "text": numberOfUsers
+      },
+      {
+        "text": numberOfCheeseSlices
+      },
+      {
+        "text": numberOfMeatSlices
+      },
+      {
+        "text": numberOfSalads
+      },
+      {
+        "text": numberOfSpreads
+      },
+    ]
+  };
+  res.status(200).json(message);
+});
+
 app.get('/api/welcome', function(req, res) {
   const message = {
 
