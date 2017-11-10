@@ -16,6 +16,8 @@ app.listen(app.get('port'), function() {
   console.log('bot running on port: ', app.get('port'));
 });
 
+var users = [];
+
 //routes
 app.get('/api/sandwiches', function(req, res) {
   var url_parts = url.parse(req.url, true);
@@ -42,6 +44,26 @@ app.get('/api/sandwiches', function(req, res) {
     }
   }
 
+  res.status(200).json(message);
+});
+
+app.get('/api/sandwiches/amount', function(req, res) {
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query["username"];
+
+  users.push({
+    "username": query["messenger user id"],
+    "amountOfSandwiches": query["amountofsandwiches"]
+  });
+
+  const message = {
+
+    "messages": [
+      {
+        "text": users
+      }
+    ]
+  };
   res.status(200).json(message);
 });
 
