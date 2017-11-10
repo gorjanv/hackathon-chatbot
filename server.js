@@ -65,7 +65,7 @@ app.get('/api/sandwiches/amount', function(req, res) {
   if(userDoesntExist) {
     users.push({
       "username": query["messenger user id"],
-      "amountOfSandwiches": query["amountofsandwiches"],
+      "amountOfSandwiches": parseInt(query["amountofsandwiches"]),
       "cheese": [],
       "meat": [],
       "salad": [],
