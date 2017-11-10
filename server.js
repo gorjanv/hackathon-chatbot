@@ -57,12 +57,7 @@ app.get('/api/sandwiches/amount', function(req, res) {
   });
 
   const message = {
-
-    "messages": [
-      {
-        "text": JSON.stringify(users)
-      }
-    ]
+    "redirect_to_blocks": ["What did you have on your sandwich?"],
   };
   res.status(200).json(message);
 });
