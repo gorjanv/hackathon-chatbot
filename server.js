@@ -55,6 +55,7 @@ app.get('/api/sandwiches/amount', function(req, res) {
     "username": query["messenger user id"],
     "amountOfSandwiches": query["amountofsandwiches"],
     "cheese": [],
+    "meat": [],
   });
 
   const message = {
@@ -78,15 +79,41 @@ app.get('/api/sandwiches/cheese', function(req, res) {
 
   users = newUsers;
 
-  const message = {
-    "redirect_to_blocks": ["What did you have on your sandwich?"],
-    "messages": [
-      {
-        "text": JSON.stringify(users)
+  // const message = {
+  //   // "redirect_to_blocks": ["What did you have on your sandwich?"],
+  //   "messages": [
+  //     {
+  //       "text": JSON.stringify(users)
+  //     }
+  //   ]
+  // };
+  // res.status(200).json(message);
+});
+
+app.get('/api/sandwiches/meat', function(req, res) {
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+
+  var newUsers = users.map(function(user) {
+    if (user.hasOwnProperty("username")) {
+      if (user.username === query["messenger user id"]) {
+        user["meat"].push(query["typeofmeat"]);
       }
-    ]
-  };
-  res.status(200).json(message);
+    }
+    return user;
+  });
+
+  users = newUsers;
+
+  // const message = {
+  //   // "redirect_to_blocks": ["What did you have on your sandwich?"],
+  //   "messages": [
+  //     {
+  //       "text": JSON.stringify(users)
+  //     }
+  //   ]
+  // };
+  // res.status(200).json(message);
 });
 
 app.get('/api/welcome', function(req, res) {
