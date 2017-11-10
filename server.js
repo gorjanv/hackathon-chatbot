@@ -70,7 +70,7 @@ app.get('/api/sandwiches/cheese', function(req, res) {
   var newUsers = users.map(function(user) {
     if (user.hasOwnProperty("username")) {
       if (user.username === query["messenger user id"]) {
-        user["cheese"] = user["cheese"].push(query["typeofcheese"]);
+        user["cheese"].push(query["typeofcheese"]);
       }
     }
     return user;
