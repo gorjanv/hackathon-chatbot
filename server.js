@@ -17,14 +17,14 @@ app.listen(app.get('port'), function() {
 });
 
 //routes
-app.get('api/sandwiches', function(req, res) {
+app.get('/api/sandwiches', function(req, res) {
   var url_parts = url.parse(req.url, true);
   var query = JSON.stringify(url_parts.query);
 
   const message = {
     "messages": [
       {
-        "text": "some random text..."
+        "text": query
       }
     ]
   };
