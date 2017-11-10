@@ -22,6 +22,7 @@ app.get('/api/sandwiches', function(req, res) {
   var query = JSON.stringify(url_parts.query);
 
   const message = {
+    "redirect_to_blocks": ["Salad ingredients"],
     "messages": [
       {
         "text": query
@@ -34,6 +35,7 @@ app.get('/api/sandwiches', function(req, res) {
 
 app.get('/api/welcome', function(req, res) {
   const message = {
+
     "messages": [
       {
         "text": "hello from the bot's BE application!!"
